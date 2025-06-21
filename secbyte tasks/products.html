@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products - MyShop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #e6f3f2;
+      color: #0e1f33;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0e1f33;
+    }
+
+    .navbar nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #0e1f33;
+    }
+
+    .navbar .cta {
+      background-color: #00b9ad;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    /* Product Section */
+    main.product-listing {
+      padding: 2rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .search-bar {
+      display: block;
+      margin: 0 auto 2rem;
+      padding: 0.5rem;
+      width: 60%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .filters select {
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card h3 {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    .product-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 0.3rem 0 0.5rem;
+    }
+
+    .product-card a {
+      text-decoration: none;
+      color: #00bcd4;
+      font-weight: bold;
+    }
+
+
+.add-to-cart-btn {
+  background-color: #00b9ad;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-to-cart-btn i {
+  font-size: 16px;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #019289;
+  transform: scale(1.05);
+}
+
+
+.add-cart-btn {
+  background-color: #00b9ad;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-cart-btn i {
+  margin-right: 8px;
+}
+
+.add-cart-btn:hover {
+  background-color: #009f95;
+}
+    .hidden {
+      display: none;
+    }
+    /* Footer */
+    footer {
+      background-color: #fff;
+      padding: 40px 20px 20px;
+      border-top: 1px solid #eee;
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .footer-column {
+      margin: 20px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #111;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .app-buttons img {
+      width: 180px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    .footer-bottom a {
+      margin: 0 10px;
+      font-size: 13px;
+      color: #444;
+      text-decoration: none;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons i {
+      margin: 0 10px;
+      font-size: 18px;
+      color: #444;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+ <header class="navbar">
+    <div class="logo">MyShop</div>
+     <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html"> Cart🛒</a>
+    <a href="about.html">About</a>
+    <a href="ConnectUs.html">Contact</a>
+  </nav>
+   <a href="login.html">
+    <button class="cta">SIGN UP NOW</button>
+    </a>
+  </header>
+
+
+<!-- Product Listing -->
+<main class="product-listing">
+  <h2>Our Products</h2>
+  <input type="text" placeholder="Search products..." class="search-bar" />
+
+  <div class="filters">
+    <label>Category:
+      <select class="category-filter" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="electronics">Electronics</option>
+        <option value="clothing">Clothing</option>
+      </select>
+    </label>
+    <label>Price:
+      <select class="price-filter" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="below20">Below ₹500</option>
+        <option value="20to50">₹10000 - ₹50000</option>
+      </select>
+    </label>
+  </div>
+  <br>
+
+  <!-- Electronics -->
+  <div id="electronics-section">
+    <div class="product-grid">
+      <div class="product-card" data-category="electronics" data-price="15">
+        <img src="./smartphone.png" alt="Smartphone">
+        <h3>Smartphone</h3>
+        <p>₹15000</p>
+        <button class="add-cart-btn" onclick="addToCart('T-shirt', 450, './tshirt.webp')">
+    <i class="fas fa-cart-plus"></i> Add to Cart
+      </div>
+
+      
+      <div class="product-card" data-category="electronics" data-price="30">
+        <img src="./laptop.png" alt="Laptop">
+        <h3>Laptop</h3>
+        <p>₹50000</p>
+       <button class="add-cart-btn" onclick="addToCart('T-shirt', 450, './tshirt.webp')">
+    <i class="fas fa-cart-plus"></i> Add to Cart
+      </div>
+      <div class="product-card" data-category="electronics" data-price="25">
+        <img src="./desktop.jpeg" alt="Desktop">
+        <h3>Desktop</h3>
+        <p>₹25000</p>
+      <button class="add-cart-btn" onclick="addToCart('T-shirt', 450, './tshirt.webp')">
+    <i class="fas fa-cart-plus"></i> Add to Cart
+      </div>
+      <div class="product-card" data-category="electronics" data-price="22">
+        <img src="./led.png" alt="LED">
+        <h3>LED</h3>
+        <p>₹22000</p>
+        <button class="add-cart-btn" onclick="addToCart('T-shirt', 450, './tshirt.webp')">
+    <i class="fas fa-cart-plus"></i> Add to Cart
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+
+  <!-- Clothing -->
+  <div id="clothing-section">
+    <div class="product-grid">
+      <div class="product-card" data-category="clothing" data-price="5">
+        <img src="./shirt.jpeg" alt="Shirts">
+        <h3>Shirts</h3>
+        <p>₹450</p>
+        <button class="add-cart-btn" onclick="addToCart('T-shirt', 450, './tshirt.webp')">
+    <i class="fas fa-cart-plus"></i> Add to Cart
+      </div>
+      <div class="product-card" data-category="clothing" data-price="20">
+        <img src="./suit.jpg" alt="Suits">
+        <h3>Suits</h3>
+        <p>₹5000</p>
+       <button class="add-cart-btn" onclick="addToCart('T-shirt', 450, './tshirt.webp')">
+    <i class="fas fa-cart-plus"></i> Add to Cart
+      </div>
+      <div class="product-card" data-category="clothing" data-price="5">
+        <img src="./tshirt.webp" alt="Tshirts">
+        <h3>Tshirts</h3>
+        <p>₹450</p>
+        <button class="add-cart-btn" onclick="addToCart('T-shirt', 450, './tshirt.webp')">
+    <i class="fas fa-cart-plus"></i> Add to Cart
+      </div>
+      <div class="product-card" data-category="clothing" data-price="12">
+        <img src="./jeans.webp" alt="BottomWear">
+        <h3>BottomWear</h3>
+        <p>₹1200</p>
+         <button class="add-cart-btn" onclick="addToCart('T-shirt', 450, './tshirt.webp')">
+    <i class="fas fa-cart-plus"></i> Add to Cart
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>DOWNLOAD THE APP</h3>
+      <div class="app-buttons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
+        <br>
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>SHOP</h3>
+      <ul>
+        <li>WOMAN</li>
+        <li>MAN</li>
+        <li>KIDS</li>
+        <li>BEAUTY</li>
+        <li>HOME</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>SITES & STORES</h3>
+      <ul>
+        <li>ABOUT US</li>
+        <li>CONTACT US</li>
+        <li>STORE LOCATOR</li>
+        <li>MEDIA CENTER</li>
+        <li>SITEMAP</li>
+        <li>MEMBERSHIP</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>
+      <a href="#">TERMS & CONDITIONS</a>
+      <a href="#">PRIVACY POLICY</a>
+      <a href="#">RETURN POLICY</a>
+      <a href="#">COOKIE POLICY</a>
+    </div>
+    <div class="social-icons">
+      <i class="fas fa-envelope"></i>
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-youtube"></i>
+    </div>
+  </div>
+</footer>
+
+<!-- Filter Script -->
+<script>
+  function filterProducts() {
+    const category = document.querySelector('.category-filter').value;
+    const price = document.querySelector('.price-filter').value;
+
+    const allCards = document.querySelectorAll('.product-card');
+    let electronicsVisible = false;
+    let clothingVisible = false;
+
+    allCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      const cardPrice = parseFloat(card.getAttribute('data-price'));
+      let show = true;
+
+      if (category !== 'all' && cardCategory !== category) {
+        show = false;
+      }
+
+      if (price === 'below20' && cardPrice >= 20) {
+        show = false;
+      } else if (price === '20to50' && (cardPrice < 20 || cardPrice > 50)) {
+        show = false;
+      }
+
+      if (show) {
+        card.classList.remove('hidden');
+        if (cardCategory === 'electronics') electronicsVisible = true;
+        if (cardCategory === 'clothing') clothingVisible = true;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    document.getElementById('electronics-section').classList.toggle('hidden', !electronicsVisible);
+    document.getElementById('clothing-section').classList.toggle('hidden', !clothingVisible);
+  }
+</script>
+
+
+<script>
+  function addToCart(name, price, image) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name, price, image });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.href = "cart.html"; // Redirect to cart
+  }
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us - MyShop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #e6f3f2;
+      color: #0e1f33;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0e1f33;
+    }
+
+    .navbar nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #0e1f33;
+    }
+
+    .navbar .cta {
+      background-color: #00b9ad;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: #fff;
+      border-radius: 10px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact-form label {
+      font-weight: 600;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form button {
+      width: fit-content;
+      padding: 10px 20px;
+      background-color: #00b9ad;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    footer {
+      background-color: #fff;
+      padding: 40px 20px 20px;
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .footer-column {
+      margin: 20px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #111;
+      letter-spacing: 1px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column ul li {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .app-buttons img {
+      width: 180px;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #ddd;
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    .footer-bottom a {
+      margin: 0 10px;
+      font-size: 13px;
+      color: #444;
+      text-decoration: none;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons i {
+      margin: 0 10px;
+      font-size: 18px;
+      color: #444;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="logo">MyShop</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart 🛒</a>
+      <a href="about.html">About</a>
+      <a href="ConnectUs.html">Contact</a>
+    </nav>
+    <a href="login.html">
+    <button class="cta">SIGN UP NOW</button>
+    </a>
+  </header>
+
+  <!-- CONTACT FORM -->
+  <div class="container">
+    <h1>Contact Us</h1>
+    <form class="contact-form">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <label for="message">Your Message</label>
+      <textarea id="message" placeholder="Write your message..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>DOWNLOAD THE APP</h3>
+        <div class="app-buttons">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
+          <br>
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store">
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>SHOP</h3>
+        <ul>
+          <li>WOMAN</li>
+          <li>MAN</li>
+          <li>KIDS</li>
+          <li>BEAUTY</li>
+          <li>HOME</li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>SITES & STORES</h3>
+        <ul>
+          <li>ABOUT US</li>
+          <li>CONTACT US</li>
+          <li>STORE LOCATOR</li>
+          <li>MEDIA CENTER</li>
+          <li>SITEMAP</li>
+          <li>MEMBERSHIP</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        <a href="#">TERMS & CONDITIONS</a>
+        <a href="#">PRIVACY POLICY</a>
+        <a href="#">RETURN POLICY</a>
+        <a href="#">COOKIE POLICY</a>
+      </div>
+      <div class="social-icons">
+        <i class="fas fa-envelope"></i>
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-youtube"></i>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
